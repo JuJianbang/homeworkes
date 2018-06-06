@@ -1,2 +1,2 @@
 # homeworkes
-helloworld由于已经是一个本地仓库放在了JuJianbang/Test了中
+helloworld由于已经是一个本地仓库，我将他放在了JuJianbang/Test了中
