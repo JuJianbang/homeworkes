@@ -1,18 +1,7 @@
-# UI组件用法演示
-本教程将演示几组Android UI组件的用法  
 
-首先是导航页面，添加几个按钮跳转到不同的界面演示不同UI组件的用法： 
-
-![导航界面](https://github.com/llfjfz/AndroidTutorials/blob/master/UiComponentTutorials/screenshots/1.png)  
-
-SimpleAdapterDemo演示SimpleAdapter的用法；CustomDialogDemo演示自定义对话框的实现；XmlMenuDemo演示如何使用xml文件定义菜单；AcitonModeContextDemo演示如何使用ACtionMode形式的上下文菜单；ProgressBarDemo演示如何使用ProgressBar组件。
-
-## SimpleAdapter用来装配ListView的用法
+ListView的用法
 ![SimpleAdapter](https://github.com/llfjfz/AndroidTutorials/blob/master/UiComponentTutorials/screenshots/simpleadapter.png)
 
-本界面演示了SimpleAdapter用来装配ListView的用法。ListView每个Item的布局采用相对布局，包含一个ImageView和一个TextView，并且指定ImageView对齐父类布局的右侧。
-
-**注意：ListView条目单击显示颜色可以指定其listSelector属性。**  
 
     <ListView
         android:id="@+id/simpleListView"
@@ -22,10 +11,9 @@ SimpleAdapterDemo演示SimpleAdapter的用法；CustomDialogDemo演示自定义�
         android:dividerHeight="2dp"
         android:listSelector="#600"/>
 
-## 自定义对话框的实现
-![CustomDialog](https://github.com/llfjfz/AndroidTutorials/blob/master/UiComponentTutorials/screenshots/dialog.png)
+自定义对话框的实现
+[CustomDialog](https://github.com/llfjfz/AndroidTutorials/blob/master/UiComponentTutorials/screenshots/dialog.png)
 
-自定义对话框使用getLayoutInflater()获取LayoutInflater实例，并利用LayoutInflater的inflate()方法从自定义布局文件中加载对话框的布局，从而实现自定义对话框。对话框的布局如下：
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     	android:orientation="vertical"
@@ -61,10 +49,8 @@ SimpleAdapterDemo演示SimpleAdapter的用法；CustomDialogDemo演示自定义�
 	        android:hint="@string/password"/>
     </LinearLayout>
     
-## 使用XML定义菜单
+使用XML定义菜单
 ![XmlDefineMenu](https://github.com/llfjfz/AndroidTutorials/blob/master/UiComponentTutorials/screenshots/menu.png)   
-
-在res文件夹下新建menu文件夹，并新建一个xml文件来定义菜单，具体的XML文件内容:
 
     <menu xmlns:android="http://schemas.android.com/apk/res/android">
 	    <item android:title="@string/menu_Font">
@@ -96,26 +82,9 @@ SimpleAdapterDemo演示SimpleAdapter的用法；CustomDialogDemo演示自定义�
 	        </menu>
 	    </item>
     </menu>
-
-## 创建ActionMode模式的上下文菜单
+ 创建ActionMode模式的上下文菜单
 ![ActionModeContextMenu](https://github.com/llfjfz/AndroidTutorials/blob/master/UiComponentTutorials/screenshots/actionmode.png) 
 
-上下文操作模式是Android3.0以后添加新特性，是上下文菜单的首选模式。
-
-应用如何调用上下文操作模式以及如何定义每个操作的行为，具体取决于您的设计。 设计基本上分为两种：
-
-
-- 针对单个任意视图的上下文操作。
-- 针对 ListView 或 GridView 中项目组的批处理上下文操作（允许用户选择多个项目并针对所有项目执行操作）。
-
-这里演示在 ListView 或 GridView 中启用批处理上下文操作
-
-如果在 ListView 或 GridView 中有一组项目（或 AbsListView 的其他扩展），且需要允许用户执行批处理操作，则应：
-
-- 实现 AbsListView.MultiChoiceModeListener 接口，并使用 setMultiChoiceModeListener() 为视图组设置该接口。在侦听器的回调方法中，您既可以为上下文操作栏指定操作，也可以响应操作项目的点击事件，还可以处理从 ActionMode.Callback 接口继承的其他回调。
-- 使用 CHOICE_MODE_MULTIPLE_MODAL 参数调用 setChoiceMode()。
-
-一个简单的示例：
 
     ListView listView = getListView();
     listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
@@ -164,17 +133,12 @@ SimpleAdapterDemo演示SimpleAdapter的用法；CustomDialogDemo演示自定义�
     });
 
 ## 使用ProgressBar指示加载进度
-Google推荐使用ProgressBar来代替ProgressDialog指示加载进度或不确定的进度
+
 
 ![ProgressBar](https://github.com/llfjfz/AndroidTutorials/blob/master/UiComponentTutorials/screenshots/progressbar.png) 
 
-默认的ProgressBar呈现出旋转齿轮的方式，如果要更改其样式，修改其style属性
 
     <ProgressBar
      style="@android:style/Widget.ProgressBar.Horizontal"
      ... />
 
-此处就使用了水平横条的方式的ProgressBar。
-
-## 参考文献
-- https://developer.android.com/guide/topics/ui/menus.html
